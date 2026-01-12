@@ -6,7 +6,7 @@ services:
     volumes:
       - static_volume:/app/staticfiles
       - media_volume:/app/media
-    container_name: saudah-web-prod
+    container_name: dkkm-web-prod
     env_file:
       - .env
     expose:
