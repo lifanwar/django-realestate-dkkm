@@ -1,0 +1,19 @@
+base-js-baileys-json/
+base-js-baileys-postgres/
+.env
+venv/
+db.sqlite3
+
+# django logs
+*.log
+*.pot
+*.pyc
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Python compiled files
+*.pyc
+*.pyo
+
+images/

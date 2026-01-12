@@ -1,0 +1,4 @@
+pillow
+django
+django-cleanup
+django-ninja
