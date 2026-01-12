@@ -30,6 +30,8 @@ services:
 
   db:
     image: postgres:17
+    env_file:
+      - .env
     environment:
       POSTGRES_DB: ${STAGGING_DB_NAME}
       POSTGRES_USER: ${STAGGING_DB_USER}
