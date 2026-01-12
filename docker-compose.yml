@@ -12,7 +12,8 @@ services:
     expose:
       - "8000"
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     networks:
       - dkkm-network
     restart: unless-stopped
@@ -37,6 +38,11 @@ services:
       - pg_data:/var/lib/postgresql/data
     networks:
       - dkkm-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${STAGGING_DB_USER}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
     logging:
       driver: "json-file"
       options:
