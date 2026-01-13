@@ -1,8 +1,8 @@
 from ninja import NinjaAPI
 from django.db.models import Count, Prefetch
 from ninja.errors import HttpError
-from .schemas import NearbyRequest, NearbyResponse, UnitDetailResponse, ErrorResponse, GedungDetailSchema
-from .utils import haversine_distance, get_bounding_box, ImarahApiKeyAuth
+from apps.api.schemas import NearbyRequest, NearbyResponse, UnitDetailResponse, ErrorResponse, GedungDetailSchema
+from apps.api.utils import haversine_distance, get_bounding_box, ImarahApiKeyAuth
 from apps.core.models import Gedung, Unit
 
 # utils
