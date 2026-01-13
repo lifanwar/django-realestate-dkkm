@@ -2,7 +2,7 @@ from ninja import NinjaAPI
 from django.db.models import Count, Prefetch
 from ninja.errors import HttpError
 from .schemas import NearbyRequest, NearbyResponse, UnitDetailResponse, ErrorResponse, GedungDetailSchema
-from .utils import haversine_distance, get_bounding_box
+from .utils import haversine_distance, get_bounding_box, ImarahApiKeyAuth
 from apps.core.models import Gedung, Unit
 
 # utils
@@ -13,7 +13,8 @@ api = NinjaAPI(
     title="Imarah Blacklist API",
     version="1.0.0",
     description="API untuk mencari gedung berdasarkan radius lokasi",
-    docs_url="/docs"
+    docs_url="/docs",
+    auth=ImarahApiKeyAuth() 
 )
 
 
@@ -222,7 +223,7 @@ def get_unit_detail(request, unit_uuid: str):
     except Unit.DoesNotExist:
         return 404, {"error": "not found"}
 
-@api.get("/health", tags=["System"])
+@api.get("/health", auth=None, tags=["System"])
 def health_check(request):
     """Health check endpoint"""
     return {"status": "ok", "message": "API is running"}
