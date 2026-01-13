@@ -1,4 +1,7 @@
 from math import radians, cos, sin, asin, sqrt
+import os
+from ninja.security import APIKeyHeader
+from ninja.errors import HttpError
 
 
 def haversine_distance(lat1, lon1, lat2, lon2):
@@ -45,3 +48,19 @@ def get_bounding_box(lat, lon, radius_meters):
         'lon_min': lon - lon_degree,
         'lon_max': lon + lon_degree
     }
+
+# API Keys khusus Imarah Blacklist API (inter-app)
+IMARAH_ALLOWED_API_KEYS = []
+api_keys_str = os.getenv('APIKEY_IMARAH_BLACKLIST')
+if api_keys_str:
+    IMARAH_ALLOWED_API_KEYS = [k.strip() for k in api_keys_str.split(',')]
+
+class ImarahApiKeyAuth(APIKeyHeader):
+    param_name = 'X-API-Key'
+    
+    def authenticate(self, request, key):
+        if not IMARAH_ALLOWED_API_KEYS:
+            raise HttpError(503, "No API keys configured")
+        if key in IMARAH_ALLOWED_API_KEYS:
+            return key
+        raise HttpError(401, "Invalid")
