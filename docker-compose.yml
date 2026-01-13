@@ -75,7 +75,7 @@ services:
 
   cloudflared:
     image: cloudflare/cloudflared:latest
-    container_name: saudah-cloudflared-prod
+    container_name: dkkm-cloudflare-tunnel
     restart: unless-stopped
     command: tunnel --no-autoupdate run
     environment:
