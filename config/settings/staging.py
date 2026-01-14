@@ -3,7 +3,7 @@ from ..base import *
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 
 DEBUG = False
-ALLOWED_HOSTS = ['staging.jastipin.id']
+ALLOWED_HOSTS = ['dkkm.jastipin.id']
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -15,7 +15,7 @@ DATABASES = {
     }
 }
 CSRF_TRUSTED_ORIGINS = [
-    'https://staging.jastipin.id',
+    'https://dkkm.jastipin.id',
 ]
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
