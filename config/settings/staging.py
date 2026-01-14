@@ -7,7 +7,7 @@ ALLOWED_HOSTS = ['dkkm.jastipin.id']
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-         'NAME': os.getenv('STAGGING_DB_NAME'),
+        'NAME': os.getenv('STAGGING_DB_NAME'),
         'USER': os.getenv('STAGGING_DB_USER'),
         'PASSWORD': os.getenv('STAGGING_DB_PASSWORD'),
         'HOST': os.getenv('STAGGING_DB_HOST'),
