@@ -16,6 +16,7 @@ DATABASES = {
 }
 CSRF_TRUSTED_ORIGINS = [
     'https://dkkm.jastipin.id',
+    'http://dkkm.jastipin.id',
 ]
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
