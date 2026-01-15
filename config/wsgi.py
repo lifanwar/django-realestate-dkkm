@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings.staging-mongodb')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings.staging-sqlite')
 
 application = get_wsgi_application()
