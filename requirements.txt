@@ -5,3 +5,7 @@ django-ninja
 dotenv
 psycopg2-binary
 gunicorn
+
+# MongoDb
+djongo
+pymongo
