@@ -12,6 +12,9 @@ DATABASES = {
         'PASSWORD': os.getenv('STAGGING_DB_PASSWORD'),
         'HOST': os.getenv('STAGGING_DB_HOST'),
         'PORT': os.getenv('STAGGING_DB_PORT'),
+        'OPTIONS': {
+            'sslmode': 'require',
+    },
     }
 }
 CSRF_TRUSTED_ORIGINS = [
