@@ -37,6 +37,6 @@ SECURE_HSTS_SECONDS = 31536000  # 1 tahun
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True  # Jika ingin mengaktifkan HSTS untuk subdomain
 SECURE_HSTS_PRELOAD = True  # Untuk mendaftarkan domain di preload list HSTS
 
-SESSION_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = False
 
-CSRF_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = False
