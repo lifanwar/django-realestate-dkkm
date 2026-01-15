@@ -42,7 +42,7 @@ services:
     networks:
       - dkkm-network
     healthcheck:
-      test: echo 'db.runCommand({ping:1}).ok' | mongosh localhost:27017/${STAGGING_DB_NAME} --quiet
+      test: echo 'db.runCommand({ping:1}).ok' | mongosh db:27017/${STAGGING_DB_NAME} --quiet
       interval: 10s
       timeout: 10s
       retries: 5
