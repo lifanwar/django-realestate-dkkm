@@ -41,7 +41,7 @@ services:
     networks:
       - dkkm-network
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -h localhost"]
+      test: ["CMD-SHELL", "pg_isready -U ${STAGGING_DB_USER} -D {STAGGING_DB_NAME}"]
       interval: 10s
       timeout: 5s
       retries: 5
