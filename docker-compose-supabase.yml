@@ -13,6 +13,8 @@ services:
       - .env
     expose:
       - "8000"
+    ports:
+      - "9347:8000"
     networks:
       - dkkm-network
     restart: unless-stopped
