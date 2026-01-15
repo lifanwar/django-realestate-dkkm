@@ -4,10 +4,11 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 
 DEBUG = False
 ALLOWED_HOSTS = [
-    'dkkm.jastipin.id',
+    # 'dkkm.jastipin.id',
     '*',
-    'localhost',
-    '127.0.0.1',]
+    # 'localhost',
+    # '127.0.0.1',
+    ]
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -17,7 +18,7 @@ DATABASES = {
         'HOST': os.getenv('STAGGING_DB_HOST'),
         'PORT': os.getenv('STAGGING_DB_PORT'),
         'OPTIONS': {
-            'sslmode': 'require',
+            'sslmode': 'require'
     },
     }
 }
