@@ -2,11 +2,18 @@ from ..base import *
 
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-+1$2))3-1eupo#evj0&b*^doot78v1=6ol^@te6lgp1rk+h(bo')
 DEBUG = True
-ALLOWED_HOSTS = ['*', '.loca.lt']
+ALLOWED_HOSTS = ['*']
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('STAGGING_DB_NAME'),
+        'USER': os.getenv('STAGGING_DB_USER'),
+        'PASSWORD': os.getenv('STAGGING_DB_PASSWORD'),
+        'HOST': os.getenv('STAGGING_DB_HOST'),
+        'PORT': os.getenv('STAGGING_DB_PORT'),
+        'OPTIONS': {
+            'sslmode': 'require'
+    },
     }
 }
 CSRF_TRUSTED_ORIGINS = [
