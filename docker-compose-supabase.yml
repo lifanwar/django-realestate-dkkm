@@ -37,8 +37,6 @@ services:
     container_name: dkkm-nginx-prod
     expose:
       - "80"
-    ports:
-      - "80:80"
     depends_on:
       - web
     networks:
