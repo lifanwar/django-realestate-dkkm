@@ -19,12 +19,11 @@ services:
       options:
         max-size: "20m"
         max-file: "2"
-    command: tail -f /dev/null
-    # command: >
-    #   sh -c "python manage.py collectstatic --noinput &&
-    #          python manage.py makemigrations &&
-    #          python manage.py migrate &&
-    #          gunicorn config.wsgi:application --bind 0.0.0.0:8000 --workers 3 --timeout 60"
+    command: >
+      sh -c "python manage.py collectstatic --noinput &&
+             python manage.py makemigrations &&
+             python manage.py migrate &&
+             gunicorn config.wsgi:application --bind 0.0.0.0:8000 --workers 3 --timeout 60"
 
   nginx:
     image: nginx:alpine
