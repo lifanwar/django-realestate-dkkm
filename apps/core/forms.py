@@ -1,18 +1,16 @@
 from django import forms
 from django.core.exceptions import ValidationError
 import re
+from django.utils.safestring import mark_safe
 from .models import Gedung
-
+from apps.core.widgets import LeafletCoordinatesWidget
 
 class GedungAdminForm(forms.ModelForm):
     coordinates = forms.CharField(
         label='Koordinat (Lat, Long)',
         help_text='Format: 30.077561674011356, 31.336270654565677',
         required=True,
-        widget=forms.TextInput(attrs={
-            'size': '50', 
-            'placeholder': '30.077561674011356, 31.336270654565677'
-        })
+        widget=LeafletCoordinatesWidget()
     )
     
     class Meta:
