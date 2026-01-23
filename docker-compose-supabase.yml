@@ -7,14 +7,10 @@ services:
       - static_volume:/app/staticfiles
       - media_volume:/app/media
     container_name: dkkm-web-prod
-    dns:
-      - 1.1.1.1
     env_file:
       - .env
     expose:
       - "8000"
-    ports:
-      - "9347:8000"
     networks:
       - dkkm-network
     restart: unless-stopped
