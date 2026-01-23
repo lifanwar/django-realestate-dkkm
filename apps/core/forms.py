@@ -1,7 +1,6 @@
 from django import forms
 from django.core.exceptions import ValidationError
 import re
-from django.utils.safestring import mark_safe
 from .models import Gedung
 from apps.core.widgets import LeafletCoordinatesWidget
 
