@@ -26,6 +26,7 @@ INSTALLED_APPS = [
 
     # utils
     'django_cleanup.apps.CleanupConfig',
+    'storages',
 ]
 
 MIDDLEWARE = [
