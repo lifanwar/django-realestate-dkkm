@@ -72,7 +72,5 @@ STORAGES = {
     },
 }
 
-# #  # # # # # DEVELOPMENT TEST STORAGE # # # # # # #
-R2_DEVELOPMENT_URL = os.getenv('R2_DEVELOPMENT_URL')
-# Enable Public Bucket for development testing
-MEDIA_URL = f"https://pub-{R2_DEVELOPMENT_URL}.r2.dev/"
+R2_MEDIA_DOMAIN = os.getenv('R2_MEDIA_DOMAIN')
+MEDIA_URL = f"https://{('R2_MEDIA_DOMAIN')}/"
