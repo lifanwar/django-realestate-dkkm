@@ -121,7 +121,7 @@ class AgenAdmin(admin.ModelAdmin):
 
 @admin.register(Unit)
 class UnitAdmin(admin.ModelAdmin):
-    list_display = ['gedung', 'deskripsi', 'unit_number', 'lantai', 'pemilik', 'agen', 'listing_type', 'created_at']
+    list_display = ['deskripsi', 'gedung', 'unit_number', 'lantai', 'pemilik', 'agen', 'listing_type', 'created_at']
     list_filter = ['listing_type', 'gedung__lokasi__distrik']
     search_fields = ['unit_number', 'gedung__nama_gedung', 'pemilik__nama', 'agen__nama']
     autocomplete_fields = ['gedung', 'pemilik', 'agen']
@@ -130,7 +130,7 @@ class UnitAdmin(admin.ModelAdmin):
     
     fieldsets = (
         ('Informasi Unit', {
-            'fields': ('gedung', 'deskripsi', 'unit_number', 'lantai', 'pemilik', 'agen')
+            'fields': ('deskripsi', 'gedung', 'unit_number', 'lantai', 'pemilik', 'agen')
         }),
         ('Status', {
             'fields': ('listing_type', 'alasan_blacklist')
