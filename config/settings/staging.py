@@ -1,10 +1,11 @@
 from ..base import *
 
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
+URL = os.getenv('URL_DOMAIN')
 
 DEBUG = False
 ALLOWED_HOSTS = [
-    'dkkm.jastipin.id',
+    f'{URL}',
     ]
 DATABASES = {
     'default': {
@@ -20,8 +21,8 @@ DATABASES = {
     }
 }
 CSRF_TRUSTED_ORIGINS = [
-    'https://dkkm.jastipin.id',
-    'http://dkkm.jastipin.id',
+    f'https://{URL}',
+    f'http://{URL}',
 ]
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
