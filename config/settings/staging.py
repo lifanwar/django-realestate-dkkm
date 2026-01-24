@@ -73,4 +73,4 @@ STORAGES = {
 }
 
 R2_MEDIA_DOMAIN = os.getenv('R2_MEDIA_DOMAIN')
-MEDIA_URL = f"https://{('R2_MEDIA_DOMAIN')}/"
+MEDIA_URL = f"https://{R2_MEDIA_DOMAIN}/"
