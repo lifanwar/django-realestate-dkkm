@@ -41,10 +41,7 @@ STORAGES = {
         },
     },
     "staticfiles": {
-        "BACKEND": "storages.backends.s3.S3Storage",
-        "OPTIONS": {
-            "endpoint_url": f"https://{R2_ACCOUNT_ID}.r2.cloudflarestorage.com",
-        },
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
     },
 }
 
