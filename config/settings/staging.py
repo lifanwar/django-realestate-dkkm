@@ -49,21 +49,18 @@ R2_BUCKET_NAME = os.getenv('R2_BUCKET_NAME')
 if not all([R2_ACCOUNT_ID, R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY, R2_BUCKET_NAME]):
     raise ValueError("R2 env vars tidak lengkap!")
 
-# AWS Compatibility settings
-AWS_ACCESS_KEY_ID = R2_ACCESS_KEY_ID
-AWS_SECRET_ACCESS_KEY = R2_SECRET_ACCESS_KEY
-AWS_STORAGE_BUCKET_NAME = R2_BUCKET_NAME
-AWS_S3_ENDPOINT_URL = f"https://{R2_ACCOUNT_ID}.r2.cloudflarestorage.com"
-AWS_S3_REGION_NAME = "auto"  # ✅ R2 wajib
-AWS_DEFAULT_ACL = None
-AWS_S3_FILE_OVERWRITE = False
-AWS_S3_CUSTOM_DOMAIN = R2_MEDIA_DOMAIN 
-
 STORAGES = {
     "default": {
         "BACKEND": "storages.backends.s3.S3Storage",
         "OPTIONS": {
             "endpoint_url": f"https://{R2_ACCOUNT_ID}.r2.cloudflarestorage.com",
+            "access_key": R2_ACCESS_KEY_ID,  # Opsional, baca dari env
+            "secret_key": R2_SECRET_ACCESS_KEY,
+            "bucket_name": R2_BUCKET_NAME,
+            "region_name": "auto",
+            "default_acl": None,  # Ganti dari AWS_DEFAULT_ACL
+            "file_overwrite": False,  # Ganti dari AWS_S3_FILE_OVERWRITE
+            "custom_domain": R2_MEDIA_DOMAIN,
         },
     },
     "staticfiles": {
