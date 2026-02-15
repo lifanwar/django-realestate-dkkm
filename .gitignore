@@ -1,5 +1,7 @@
 base-js-baileys-json/
 base-js-baileys-postgres/
+base-js-telegram/
+
 .env
 venv/
 db.sqlite3
