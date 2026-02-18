@@ -1,19 +1,43 @@
 from ..base import *
 
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-+1$2))3-1eupo#evj0&b*^doot78v1=6ol^@te6lgp1rk+h(bo')
-DEBUG = True
-ALLOWED_HOSTS = ['*', '.loca.lt']
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
+URL = os.getenv('URL_DOMAIN')
+
+DEBUG = False
+ALLOWED_HOSTS = [
+    f'{URL}',
+    ]
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('STAGGING_DB_NAME'),
+        'USER': os.getenv('STAGGING_DB_USER'),
+        'PASSWORD': os.getenv('STAGGING_DB_PASSWORD'),
+        'HOST': os.getenv('STAGGING_DB_HOST'),
+        'PORT': os.getenv('STAGGING_DB_PORT'),
+        'OPTIONS': {
+            'sslmode': 'require'
+    },
     }
 }
 CSRF_TRUSTED_ORIGINS = [
-    'https://*.loca.lt',
-    'http://localhost:8000',
-    'http://127.0.0.1:8000',
+    f'https://{URL}',
+    f'http://{URL}',
 ]
+
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+SECURE_SSL_REDIRECT = False
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# Mengaktifkan HSTS dengan waktu tertentu (misalnya 31536000 detik = 1 tahun)
+SECURE_HSTS_SECONDS = 31536000  # 1 tahun
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True  # Jika ingin mengaktifkan HSTS untuk subdomain
+SECURE_HSTS_PRELOAD = True  # Untuk mendaftarkan domain di preload list HSTS
+
+SESSION_COOKIE_SECURE = False
+
+CSRF_COOKIE_SECURE = False
 
 # cloudflared storage
 R2_MEDIA_DOMAIN = os.getenv('R2_MEDIA_DOMAIN')
